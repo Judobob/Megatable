@@ -1,0 +1,21 @@
+h1 Listing table_data
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @table_data.each do |table_datum|
+      tr
+        td = table_datum.name
+        td = link_to 'Show', table_datum
+        td = link_to 'Edit', edit_table_datum_path(table_datum)
+        td = link_to 'Destroy', table_datum, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Table datum', new_table_datum_path
